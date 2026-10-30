@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales y Aprendizaje</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf2f8;
+            margin: 0;
+            padding: 25px;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #bbb;
+        }
+
+        h1 {
+            text-align: center;
+            color: #24527a;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 22px;
+            background: #2471a3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #154360;
+        }
+
+        .mensaje {
+            text-align: center;
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>Redes Sociales</h1>
+
+    <p>
+        Encuesta sobre las redes sociales como herramienta
+        de aprendizaje y comunicación.
+    </p>
+
+    {% if mensaje %}
+        <div class="mensaje">{{ mensaje }}</div>
+    {% endif %}
+
+    <form action="/guardar" method="POST">
+
+        <label>Nombre completo:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Correo electrónico:</label>
+        <input type="email" name="correo" required>
+
+        <label>Edad:</label>
+        <input type="number" name="edad" min="1" required>
+
+        <label>Red social que más utiliza:</label>
+        <select name="red_social" required>
+            <option value="">Seleccione una opción</option>
+            <option>Facebook</option>
+            <option>WhatsApp</option>
+            <option>TikTok</option>
+            <option>Instagram</option>
+            <option>YouTube</option>
+            <option>Telegram</option>
+            <option>Otra</option>
+        </select>
+
+        <label>¿Para qué utiliza principalmente las redes sociales?</label>
+        <select name="uso" required>
+            <option value="">Seleccione una opción</option>
+            <option>Aprendizaje</option>
+            <option>Comunicación</option>
+            <option>Entretenimiento</option>
+            <option>Emprendimiento</option>
+        </select>
+
+        <label>¿Considera que las redes sociales ayudan al aprendizaje?</label>
+        <select name="aprendizaje" required>
+            <option value="">Seleccione una opción</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>A veces</option>
+        </select>
+
+        <label>¿Cuántas horas al día utiliza las redes sociales?</label>
+        <select name="horas" required>
+            <option value="">Seleccione una opción</option>
+            <option>Menos de 1 hora</option>
+            <option>1 a 3 horas</option>
+            <option>4 a 6 horas</option>
+            <option>Más de 6 horas</option>
+        </select>
+
+        <button type="submit">Enviar encuesta</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
